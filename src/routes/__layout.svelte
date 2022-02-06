@@ -7,6 +7,9 @@ import { navigating, page } from "$app/stores";
 import PageTransitions from "$lib/components/PageTransitions.svelte";
 import PreloadingIndicator from "$lib/components/PreloadingIndicator.svelte";
 import ThemeToggler from "$lib/components/ThemeToggler.svelte";
+import Main from "$lib/components/Main.svelte";
+import TheHeader from "$lib/components/TheHeader.svelte";
+import TheFooter from "$lib/components/TheFooter.svelte";
 
 
 </script>
@@ -14,9 +17,9 @@ import ThemeToggler from "$lib/components/ThemeToggler.svelte";
      <PreloadingIndicator />
 {/if}
 
-<PageTransitions refresh="{$page}">
-    <a href="/aaaa">aaaa</a>
-<a href="/">home</a>
-<slot />
-</PageTransitions>
+<TheHeader />
+<Main>
+  <slot />
+</Main>
+<TheFooter />
 <ThemeToggler />
