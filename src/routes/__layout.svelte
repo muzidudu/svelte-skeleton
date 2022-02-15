@@ -3,8 +3,7 @@ import "virtual:windi.css"
 import '../style/app.css'
 import { browser } from "$app/env";
   if (browser) import("virtual:windi-devtools")
-import { navigating, page } from "$app/stores";
-import PageTransitions from "$lib/components/PageTransitions.svelte";
+import SvelteTheme from 'svelte-themes/SvelteTheme.svelte'
 import PreloadingIndicator from "$lib/components/PreloadingIndicator.svelte";
 import ThemeToggler from "$lib/components/ThemeToggler.svelte";
 import Main from "$lib/components/Main.svelte";
@@ -13,13 +12,10 @@ import TheFooter from "$lib/components/TheFooter.svelte";
 
 
 </script>
-{#if $navigating && $navigating.to}
-     <PreloadingIndicator />
-{/if}
-
+<PreloadingIndicator />
 <TheHeader />
 <Main>
   <slot />
 </Main>
 <TheFooter />
-<ThemeToggler />
+<SvelteTheme attribute="class" />

@@ -31,7 +31,10 @@ const config = {
 				})
 			],
 			server: {
-				host: '0.0.0.0',
+				fs: {
+					strict:true,
+				},
+				// host: '0.0.0.0',
 				proxy: {
 					'/api': {
 						target: "http://laravel.test/api",

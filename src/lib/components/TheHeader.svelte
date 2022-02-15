@@ -11,16 +11,7 @@
 			isOpen = false;
 		}
 	}
-
-	// let category = [];
-	// async function getCategory() {
-	// 	const res = await fetch('http://laravel.test/api/category');
-	// 	category = await res.json();
-	// 	console.log(category);
-	// }
-	// onMount(() => {
-	// 	getCategory();
-	// });
+	let isOpenMenu = true;
 </script>
 <!-- Page Header -->
 <header id="page-header" class="flex flex-none items-center bg-white shadow-sm z-1">
@@ -94,21 +85,10 @@
 					{/if}
 
 					<a
-						href="/"
+						href="/demo"
 						class="text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded text-gray-600 border border-transparent hover:text-red-500 hover:bg-red-50 hover:border-red-50 active:bg-red-100 active:border-red-100"
 					>
-						<svg
-							fill="currentColor"
-							viewBox="0 0 20 20"
-							xmlns="http://www.w3.org/2000/svg"
-							class="opacity-50 hi-solid hi-cog inline-block w-5 h-5"
-							><path
-								fill-rule="evenodd"
-								d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-								clip-rule="evenodd"
-							/></svg
-						>
-						<span>Settings</span>
+						<span>demo</span>
 					</a>
 				</nav>
 				<!-- END Desktop Navigation -->
@@ -239,6 +219,7 @@
 				<!-- Toggle Mobile Navigation -->
 				<div class="lg:hidden">
 					<button
+						on:click="{ () => isOpenMenu = !isOpenMenu }"
 						type="button"
 						class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-6 rounded border-gray-300 bg-white text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
 					>
@@ -266,7 +247,7 @@
           Closed        'hidden'
           Opened        '' (no class)
       -->
-		<div class="lg:hidden">
+		<div class="lg:hidden" class:hidden={isOpenMenu}>
 			<nav class="flex flex-col space-y-2 py-4 border-t">
 				<a
 					href="/"
