@@ -29,7 +29,17 @@ const config = {
 					compiler: 'svelte',
 					autoInstall: true
 				})
-			]
+			],
+			server: {
+				host: '0.0.0.0',
+				proxy: {
+					'/api': {
+						target: "http://laravel.test/api",
+						changeOrigin: true,
+						rewrite: path => path.replace(/^\/mapi/, ""),
+					}
+				}
+			}
 		}
 	}
 };
