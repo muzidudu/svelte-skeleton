@@ -22,4 +22,5 @@ import { onMount } from 'svelte';
     <button class="border-blue-300 border p-4 rounded-md bg-light-50 dark:text-black" on:click={() => setTheme('system')}> system mode </button>
     <div>当前模式: { $themeStore.theme || '' }</div>
     { UserAgent }
+    
 </div>
