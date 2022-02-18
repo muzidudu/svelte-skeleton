@@ -1,18 +1,23 @@
 <script>
-    import LazyImage from "svelte-lazy-image"
-    import { lazyload } from './../lazyload'
-    export let item;
+  import { fade } from "svelte/transition";
+  import Lazy from 'svelte-lazy';
+  export let item;
+
+
 </script>
-<article class="v-img-box group">
+<article class="v-img-box group" transition:fade>
     <div class="img-box">
       <a href="/video/{item.id}">
-      
-       <img
-      data-src="{item.thumb.replace('hjimg.','hjimg1.')}" 
-      src="https://via.placeholder.com/250?text=placeholder" 
-      use:lazyload 
-      alt="Lorem Ipsum"
+        <Lazy
+          placeholder={'Loading...'} 
+          fadeOption={{delay: 100, duration: 600}} 
+        >
+      <img
+      src="{item.thumb.replace('hjimg.','hjimg1.')}" 
+      alt="{item.name}"
        />
+       </Lazy>
+       
       <div class="playbtn">
           <span>
             <svg class="w-6 h-6 text-black fill-current" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M768 506.026667v11.946666a32.426667 32.426667 0 0 1-15.786667 27.733334L370.346667 768c-23.04 13.653333-34.986667 13.653333-45.226667 7.68l-10.666667-5.973333a32.426667 32.426667 0 0 1-15.786666-26.88V281.173333a32.426667 32.426667 0 0 1 15.786666-27.733333l10.666667-5.973333c10.24-5.973333 22.186667-5.973333 52.053333 11.52l375.04 219.306666a32.426667 32.426667 0 0 1 15.786667 27.733334z" p-id="1185" /></svg>

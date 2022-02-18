@@ -1,3 +1,30 @@
 body {
 	@apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-300;
 }
+
+
+.v-img-box > .img-box {
+	@apply relative mb-3 rounded overflow-hidden;
+}
+.v-img-box > .img-box > a {
+	@apply block pb-[56.25%];
+}
+.v-img-box > .img-box > a img {
+	@apply object-cover object-center w-full h-full absolute;
+}
+.v-img-box > .img-box > a > .playbtn {
+	@apply w-full flex absolute inset-0 opacity-0 duration-300  items-center justify-center py-1 px-3;
+}
+.v-img-box > .img-box > a > .playbtn > span {
+	@apply bg-white rounded-full flex items-center justify-center text-xl text-white opacity-95 border border-white w-10 h-10 shadow;
+}
+.v-img-box > .img-box > a:hover > .playbtn {
+	@apply lg:opacity-100;
+}
+
+.v-img-box > .img-info > .h2 > a {
+	@apply line-clamp-1 hover:text-red-600 dark:hover:text-red-400 text-gray-800 dark:text-gray-400 text-base;
+}
+.v-img-box > .img-info > .meta {
+	@apply text-gray-500 dark:text-gray-600 text-xs mt-1.5 flex items-center justify-between px-1;
+}
